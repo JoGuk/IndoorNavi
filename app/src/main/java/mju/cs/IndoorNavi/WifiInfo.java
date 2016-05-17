@@ -3,6 +3,7 @@ package mju.cs.IndoorNavi;
 /**
  * Created by Joguk on 2016-04-26.
  */
+
 public class WifiInfo {
     String ssid;
     int rssi;
