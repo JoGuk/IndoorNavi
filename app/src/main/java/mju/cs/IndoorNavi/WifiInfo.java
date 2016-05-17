@@ -21,7 +21,7 @@ public class WifiInfo {
         this.avg = 0;
     }
 
-    public WifiInfo(String ssid, int rssi){
+    public WifiInfo(String ssid, int rssi){x
         this.ssid = ssid;
         this.rssi = rssi;
     }
