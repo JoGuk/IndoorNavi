@@ -1,5 +1,6 @@
 package mju.cs.IndoorNavi;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -15,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.TextView;
@@ -37,6 +39,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
     private APJSONParser jsonParser;
 
+    int x = 50, y = 50;
 
     // WifiManager variable
     WifiManager wifimanager;
@@ -71,7 +74,6 @@ public class MainActivity extends Activity implements OnClickListener {
         setContentView(mju.cs.IndoorNavi.R.layout.activity_main);
 
         // xml에 불러온 이미뷰를 iv에 넣어 속성사용 하기위한 구문
-//        background = (ImageView) findViewById(mju.cs.CodeBay.R.id.background);
         refresh = (ImageView) findViewById(mju.cs.IndoorNavi.R.id.refresh);
 //        location_name = (TextView) findViewById(mju.cs.CodeBay.R.id.location_name);
         location_ikon  = (ImageView) findViewById(mju.cs.IndoorNavi.R.id.location_ikon);
@@ -79,18 +81,24 @@ public class MainActivity extends Activity implements OnClickListener {
         jsonParser = new APJSONParser();
         refresh.setOnClickListener(this);
 
-        location_ikon.setScaleType(ScaleType.MATRIX);   // 혹은 현재 xml에서 android:scaleType="matrix" 처리
+//        location_ikon.setScaleType(ScaleType.MATRIX);   // 혹은 현재 xml에서 android:scaleType="matrix" 처리
 
-        bitmap = BitmapFactory.decodeResource(getResources(), mju.cs.IndoorNavi.R.drawable.location_ikon);
-        location_ikon.setImageBitmap(bitmap);
-        location_ikon.bringToFront();
+//        bitmap = BitmapFactory.decodeResource(getResources(), mju.cs.IndoorNavi.R.drawable.location_ikon);
+//        location_ikon.setImageBitmap(bitmap);
+//        location_ikon.bringToFront();
 
         moveleftButton = (Button) findViewById(mju.cs.IndoorNavi.R.id.moveleft);
         moveleftButton.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-                setMove(100, 100);
+                location_ikon.setTranslationX(120);
+                location_ikon.setTranslationY(300);
+
+                x += 50;
+                y += 50;
+
+//                setMove(x, y);
                 // AP를 검색
-                searchAP();
+//                searchAP();
             }
         });
 

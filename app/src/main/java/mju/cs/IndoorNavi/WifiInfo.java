@@ -3,7 +3,6 @@ package mju.cs.IndoorNavi;
 /**
  * Created by Joguk on 2016-04-26.
  */
-
 public class WifiInfo {
     String ssid;
     int rssi;
@@ -21,7 +20,7 @@ public class WifiInfo {
         this.avg = 0;
     }
 
-    public WifiInfo(String ssid, int rssi){x
+    public WifiInfo(String ssid, int rssi){
         this.ssid = ssid;
         this.rssi = rssi;
     }
